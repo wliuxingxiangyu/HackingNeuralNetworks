@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 ''' 
 Please read the README.md for Exercise instructions!
 
@@ -21,15 +23,15 @@ for yy in range(28):
         processedImage[0][xx][yy][0] = float(image[xx][yy]) / 255
 
 # Load the Model 
-model = keras.models.load_model('./model.h5')
+model = keras.models.load_model('./model.h5') #本实验没有写模型的保存方法，
 
-# Run the Model and check what Digit was shown
+# Run the Model and check what Digit was shown 元素最大值所对应的索引
 shownDigit = np.argmax(model.predict(processedImage))
 
 print(model.predict(processedImage))
 
 # Only Digit 4 grants access!
-if shownDigit == 4:
+if shownDigit == 4: # 原数字是2，如果被判成了4，说明攻击成功,Access Granted。
     print("Access Granted")
 else:
     print("Access Denied")
